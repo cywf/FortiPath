@@ -1,5 +1,11 @@
 # FortiPath: Comprehensive Security Planning
 
+<!--
+Intial Readme
+Date: 2023-07-20
+Auth: Kylo Parisher (cywf)
+-->
+
 FortiPath is an integratable cross-platform application designed to provide advanced functionality for executive protection. It is inspired by the Advanced Tactical Awareness Kit (ATAK) framework and aims to deploy to existing infrastructure, provide interoperability between various existing emergency response systems, and offer a user-friendly UI/UX compatible on all platforms.
 
 ## Features
