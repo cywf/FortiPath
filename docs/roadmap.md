@@ -16,4 +16,8 @@ Auth: Kylo Parisher (cywf)
 // Todo
 
 - We need to prioritize area fam (area familiarization), streamlining the process for our teams. We want to figure out if there is a way to utilize AI to componsate for the lack of area fam. If we implement this right with FortiPath, theoretically we would be able to drop teams and assets in unfamiliar areas and still have mission success.  
+
+- Another thing we need is real time updates to changes in routes, when we lose the subject we need to get back on track as 
+
+- 
 -->
