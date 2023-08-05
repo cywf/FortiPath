@@ -37,7 +37,3 @@ Detailed documentation for each aspect of the project can be found in the follow
 ## License
 
 This project is dual-licensed under the terms of the [Open Source License](docs/LICENSE.md) and the [Commercial License](docs/Commercial_License.md). 
-
-## Contact
-
-If you have any questions or suggestions, please contact [Your Contact Information].
