@@ -1,5 +1,7 @@
 # FortiPath: Comprehensive Security Planning
 
+![alt text](assets/fortipath_art.png)
+
 <!--
 Intial Readme
 Date: 2023-07-20
