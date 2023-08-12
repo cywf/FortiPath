@@ -6,36 +6,51 @@
 Intial Readme
 Date: 2023-07-20
 Auth: Kylo Parisher (cywf)
+
+Updated Readme
+Date: 2023-08-12
+Auth: Kylo Parisher (cywf)
 -->
 
-FortiPath is an advanced executive protection technology designed to enhance the safety and efficiency of principal movements and activities. This project aims to develop a cross-platform application that integrates with existing infrastructure, provides interoperability between various emergency response systems, and offers advanced networking capabilities.
+# FortiPath
 
-## Key Features
+FortiPath is a comprehensive executive protection tool designed to enhance the safety, efficiency, and effectiveness of protection details. By leveraging state-of-the-art technologies and methodologies, FortiPath aims to revolutionize the executive protection industry.
 
-- **Route Planning**: Determining the best and safest routes for all travel, including backup routes for emergencies or unexpected situations.
-- **Location Assessment**: Assessing the security of locations before the principal's visit to identify potential risks and safe zones.
-- **Coordination with Local Authorities**: Collaborating with local law enforcement or security forces to ensure a smooth visit and additional resources in case of an emergency.
-- **Emergency Planning**: Identifying the nearest hospitals, establishing evacuation routes, and setting up contingency plans for various potential scenarios.
-- **Scheduling**: Detailed scheduling to plan protective strategies and ensure preparedness at all times.
+## Features
+
+- **Advance Surveys**: Detailed assessments of locations to ensure the safety of the principal.
+- **Communication**: Seamless communication between agents and command using TAK server deployment.
+- **OSINT Web Crawler**: Scans the web for potential threats or indications related to Persons of Interest.
+- **Report Writing**: Automated and streamlined report generation for various types of security reports.
+- **Risk Assessment**: Utilizes the Dietz Scale to evaluate and manage potential threats.
+- **Infrastructure Deployment**: Uses Terraform to deploy secure and scalable infrastructure on cloud platforms.
+- **Network Security**: ZeroTier integration for creating secure, encrypted, and private networks.
 
 ## Getting Started
 
-If you're new to the project, start by reading our [Setup Guide](setup_scripts/README.md) to understand how to set up your development environment and install the necessary software. 
+1. Clone the repository: `git clone https://github.com/cywf/FortiPath.git`
+2. Navigate to the directory: `cd FortiPath`
+3. Follow the setup instructions for each module as detailed in their respective READMEs.
 
-## Contributing
+## Modules
 
-We welcome contributions from all developers. Please read our [Contributing Guide](docs/Contributing.md) to understand how you can contribute to FortiPath.
+- **Database**: Securely stores and manages data related to protection details.
+- **Web Server**: Hosts the main application and interfaces.
+- **ZeroTier Root Server**: Ensures secure communication across the network.
+- **TAK Server**: Facilitates communication between agents and command.
 
-## Documentation
+## Community and Contributions
 
-Detailed documentation for each aspect of the project can be found in the following wiki pages:
-
-- [Route Planning](https://github.com/cywf/FortiPath/wiki/Route-Planning)
-- [Location Assessment](https://github.com/cywf/FortiPath/wiki/Location-Assesment)
-- [Coordination with Local Authorities](https://github.com/cywf/FortiPath/wiki/Coordination-with-Local-Authorities)
-- [Emergency Planning](https://github.com/cywf/FortiPath/wiki/Emergency-Planning)
-- [Scheduling](https://github.com/cywf/FortiPath/wiki/Scheduling)
+- **Wiki**: Our [Wiki](https://github.com/cywf/FortiPath/wiki) provides comprehensive guides, explanations, and details about various aspects of FortiPath.
+- **Discussions**: Join our ongoing [discussions](https://github.com/cywf/FortiPath/discussions) to share ideas, ask questions, and collaborate with the community.
+- **Project Boards**: Track our progress, tasks, and objectives on our [project boards](https://github.com/cywf/FortiPath/projects?query=is%3Aopen).
+  
+We welcome contributions from the community. Please refer to the `CONTRIBUTING.md` file for guidelines.
 
 ## License
 
-This project is dual-licensed under the terms of the [Open Source License](docs/LICENSE.md) and the [Commercial License](docs/Commercial_License.md). 
+FortiPath is dual-licensed under the terms of the Open Source License and the Commercial License. For more details, see the `LICENSE.md` file.
+
+## Contact
+
+For any queries or feedback, please reach out to [Kylo Parisher](https://linkedin.com/in/kparisher).
