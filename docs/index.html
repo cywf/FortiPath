@@ -86,6 +86,15 @@
                 href="https://github.com/cywf/FortiPath/wiki/Web-Crawler-for-OSINT-on-POIs">Wiki documentation</a>.</p>
     </section>
 
+    <!-- OSINT POI Web Crawler Demo -->
+    <section id="osintDemo">
+        <h2>OSINT POI Web Crawler Demo</h2>
+        <p>Enter a Point of Interest to simulate the web crawling process:</p>
+        <input type="text" id="poiInput" placeholder="Enter POI">
+        <button onclick="osintPOICrawlerDemo()">Start Crawling</button>
+        <div id="poiResults" class="demoResults"></div>
+    </section>
+
     <!-- Surveillance Detection Routes & Route Planning Section -->
     <section id="sdr-route-planning">
         <h2>Surveillance Detection Routes & Route Planning</h2>
@@ -109,6 +118,33 @@
                 documentation</a>.</p>
     </section>
 
+    <!-- Report Writing AI Assistant Demo -->
+    <section id="reportWritingDemo">
+        <h2>Report Writing AI Assistant Demo</h2>
+        <p>Enter basic event details and select report style and tone:</p>
+        <textarea id="eventDetailsInput" placeholder="Enter event details"></textarea>
+        <select id="reportStyleDropdown">
+            <option value="Formal">Formal</option>
+            <option value="Informal">Informal</option>
+        </select>
+        <select id="reportToneDropdown">
+            <option value="Neutral">Neutral</option>
+            <option value="Positive">Positive</option>
+            <option value="Negative">Negative</option>
+        </select>
+        <button onclick="reportWritingDemo()">Generate Report</button>
+        <div id="reportResults" class="demoResults"></div>
+    </section>
+
+    <!-- Threat Hunting Simulation Demo -->
+    <section id="threatHuntingDemo">
+        <h2>Threat Hunting Simulation Demo</h2>
+        <p>Enter potential threat indicators to simulate the threat hunting process:</p>
+        <input type="text" id="threatIndicatorInput" placeholder="Enter threat indicator">
+        <button onclick="threatHuntingDemo()">Start Hunting</button>
+        <div id="threatResults" class="demoResults"></div>
+    </section>
+
     <!-- Client Data Privacy Section -->
     <section id="data-privacy">
         <h2>Ensuring Client Data Privacy</h2>
@@ -119,6 +155,17 @@
                 documentation</a> and <a href="https://github.com/cywf/FortiPath/wiki/ZeroTier-in-FortiPath">ZeroTier
                 guide</a>.</p>
     </section>
+
+    <!-- Styles for the demo results -->
+    <style>
+        .demoResults {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #00aaff;
+            background-color: #333333;
+        }
+    </style>
+
 
 
     <!-- Add footer or any other necessary sections -->
