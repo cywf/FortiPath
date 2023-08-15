@@ -1,6 +1,6 @@
 # FortiPath: Comprehensive Security Planning
 
-![alt text](assets/fortipath_art.png)
+![alt text](assets/images/fortipath_art.png)
 
 <!--
 Intial Readme

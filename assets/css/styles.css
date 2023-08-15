@@ -1,0 +1,84 @@
+/* Styles for FortiPath Landing Page */
+
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    /* Dark background */
+    color: #e6e6e6;
+    /* Light text */
+}
+
+a {
+    color: #00aaff;
+    /* Bright blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #333333;
+    /* Slightly lighter than body */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #00aaff;
+    /* Bright blue for main title */
+}
+
+header p {
+    margin-top: 10px;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #00aaff;
+    /* Bright blue for section titles */
+    padding-bottom: 10px;
+}
+
+/* Media */
+#media img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    /* Center the image */
+}
+
+/* Testimonials */
+blockquote {
+    border-left: 4px solid #00aaff;
+    /* Bright blue for blockquote line */
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* Call to Action */
+#cta {
+    background-color: #333333;
+    /* Slightly lighter than body */
+    padding: 30px;
+    text-align: center;
+}
+
+#cta h2 {
+    margin-top: 0;
+}
+
+/* Additional Sections */
+#thanks a {
+    font-weight: bold;
+}
