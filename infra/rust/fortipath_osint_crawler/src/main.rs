@@ -15,20 +15,60 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 // TODO: Add support for parallel and asynchronous crawling for efficiency.
 
 fn main() {
-    // Placeholder function to initiate the OSINT crawl.
-    start_osint_crawl();
+    // Get user input for the source/platform to crawl
+    print!("Enter the source/platform to crawl (e.g., 'github'): ");
+    io::stdout().flush().unwrap();
+    let mut source = String::new();
+    io::stdin().read_line(&mut source).unwrap();
+    let source = source.trim();
+
+    // Choose the spider based on the source
+    let spider: Box<dyn advanced_crawler::Spider> = match source {
+        "github" => Box::new(advanced_crawler::GitHubSpider),
+        _ => {
+            println!("Unsupported source. Using default spider.");
+            Box::new(advanced_crawler::GitHubSpider)
+        }
+    };
+
+    // Choose the downloader
+    let downloader: Box<dyn advanced_crawler::Downloader> = Box::new(advanced_crawler::ReqwestDownloader);
+
+    // Check if the user wants to apply any defense mechanisms
+    print!("Do you want to apply defense mechanisms? (yes/no): ");
+    io::stdout().flush().unwrap();
+    let mut defense_choice = String::new();
+    io::stdin().read_line(&mut defense_choice).unwrap();
+    let apply_defense = defense_choice.trim().eq_ignore_ascii_case("yes");
+
+    // Initiate the OSINT crawl
+    start_osint_crawl(spider, downloader, apply_defense);
 }
 
 /// Initiates the OSINT crawl based on given parameters.
 /// This is a placeholder function and will need to be expanded upon.
-fn start_osint_crawl() {
-    // Placeholder: Define the sources or platforms to crawl.
-    let sources = vec!["example_source1", "example_source2"];
+fn start_osint_crawl(spider: Box<dyn advanced_crawler::Spider>, downloader: Box<dyn advanced_crawler::Downloader>, apply_defense: bool) {
+    // Define the initial URLs to crawl (this can be expanded based on the spider/source)
+    let initial_urls = vec!["https://example.com/start"];
 
-    for source in sources {
-        // TODO: Implement the actual crawling logic for each source.
-        // This could involve making HTTP requests, parsing HTML, etc.
-        println!("Crawling source: {}", source);
+    for url in initial_urls {
+        // Use the spider to get the next set of URLs to crawl
+        let urls_to_crawl = spider.crawl(url);
+
+        for url in urls_to_crawl {
+            // Download the content of the URL
+            let content = downloader.download(&url);
+
+            // If defense mechanisms are applied, check for traps and other defenses
+            if apply_defense && defense::trap_for_bots(&url) {
+                println!("Trap detected for URL: {}", url);
+                continue;
+            }
+
+            // Process the downloaded content (e.g., store, analyze, etc.)
+            println!("Downloaded content from URL: {}", url);
+            // TODO: Add further processing logic here
+        }
     }
 }
 
