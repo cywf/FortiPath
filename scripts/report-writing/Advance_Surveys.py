@@ -13,6 +13,9 @@ Usage:
 Run the script and follow the on-screen prompts to input details about the venue, its surroundings, access points, 
 security features, and any identified vulnerabilities. Upon completion, an Advance Survey report will be generated 
 and displayed.
+
+Note:
+Future plans include automating these scripts in the pre-planning phase
 """
 
 # Import necessary libraries
