@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fortipath-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fortipath
+  template:
+    metadata:
+      labels:
+        app: fortipath
+    spec:
+      containers:
+      - name: fortipath-container
+        image: fortipath:latest
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fortipath-config
+data:
+  # TODO: Add configuration key-value pairs for FortiPath
+  config-key: config-value
