@@ -1,0 +1,1 @@
+# Variable definitions for integration
