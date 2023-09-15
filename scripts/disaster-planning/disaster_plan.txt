@@ -1,0 +1,16 @@
+Venue Type: Power Substation
+Venue Region: Helena, Montana
+Disaster Type: man-made
+
+# Disaster Planning Phases
+
+* Risk Analysis
+* Prevention & Mitigation
+* Preparedness
+* Prediction & Warning
+* Response
+* Recovery
+
+## Risk Analysis Equation
+
+Phenomenon + Vulnerability = Impact
