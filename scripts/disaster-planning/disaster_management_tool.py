@@ -9,6 +9,8 @@ def main():
     # TODO: add inputs for the following:
     # - number of people in the venue
 
+    # TODO: add ChatGPT API call to generate a disaster plan
+
     # Create the disaster plan
     disaster_plan = generate_disaster_plan(venue_type, venue_region, disaster_type)
 
