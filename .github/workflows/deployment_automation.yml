@@ -1,0 +1,61 @@
+name: Deployment Automation
+
+on:
+  issues:
+    types: [opened, labeled]
+  repository_dispatch:
+    types: [deploy_trigger]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'deployment') || github.event.action == 'deploy_trigger'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Git user
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+
+      - name: Create Branch
+        id: create_branch
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          BRANCH_NAME="deploy-${{ github.event.issue.number }}"
+          git checkout -b $BRANCH_NAME
+          git push origin $BRANCH_NAME
+          echo "::set-output name=BRANCH_NAME::$BRANCH_NAME"
+
+      - name: Create Project Board
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: 'Deployment Project'
+          column: 'To do'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fork Repository
+        run: |
+          curl \
+            -X POST \
+            -H "Authorization: token ${{ secrets.DEPLOY_TOKEN }}" \
+            -d '{"organization": "new-org", "repo": "${{ github.repository }}"}' \
+            "https://api.github.com/repos/${{ github.repository }}/forks"
+
+      - name: Notify Completion
+        if: success()
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Deployment workflow completed successfully.'
+            })
+
+      - name: Log Action
+        run: |
+          echo "Deployment process for issue ${{ github.event.issue.number }} completed" >> deployment_log.txt
