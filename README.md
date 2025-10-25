@@ -2,6 +2,7 @@
 
 ![alt text](assets/images/fortipath_art.png)
 
+[![Spec-Kit Validation](https://github.com/cywf/FortiPath/actions/workflows/spec-kit.yml/badge.svg)](https://github.com/cywf/FortiPath/actions/workflows/spec-kit.yml)
 [![Status](https://img.shields.io/badge/Status-Active%20Development-yellow)](https://github.com/cywf/FortiPath)
 [![Version](https://img.shields.io/badge/Version-0.1.0%20→%201.0.0-blue)](https://github.com/cywf/FortiPath/releases)
 [![License](https://img.shields.io/badge/License-Dual%20Licensed-green)](LICENSE)
@@ -27,6 +28,11 @@ Latest Update
 Date: 2025-10-25
 Auth: Kylo Parisher (cywf)
 Update: Enhanced README with comprehensive feature list and improved documentation structure
+
+Spec-Kit Integration
+Date: 2025-10-25
+Update: Integrated spec-bootstrap framework for specification-driven development
+Structure: Added .specify/ directory with constitution, specifications, and implementation plan
 -->
 
 # FortiPath
@@ -35,7 +41,9 @@ Update: Enhanced README with comprehensive feature list and improved documentati
 
 FortiPath is a comprehensive executive protection toolkit designed to enhance the safety, efficiency, and effectiveness of protection details. By leveraging state-of-the-art technologies and methodologies—including AI-powered threat analysis, OSINT web crawling, and advanced route planning—FortiPath aims to revolutionize the executive protection industry.
 
-> **Note:** FortiPath is currently undergoing a comprehensive modernization effort. See the [Upgrade Plan](docs/UPGRADE_PLAN.md) for details on features being developed.
+> **Note:** FortiPath follows the [Spec-Kit](https://github.com/PR-CYBR/spec-bootstrap) specification-driven development framework. All features and development are guided by documented specifications in the `.specify/` directory.
+
+> **Development Status:** FortiPath is currently undergoing a comprehensive modernization effort. See the [Implementation Plan](.specify/plan.md) for details on features being developed.
 
 ## 🎯 Mission
 
@@ -135,6 +143,29 @@ python scripts/route-planning/route_planning_script.py --help
 
 For detailed setup instructions, see the [Development Environment Setup Guide](docs/DEVELOPMENT_ENVIRONMENT_SETUP.md).
 
+## 📋 Specification-Driven Development
+
+FortiPath follows the **Spec-Kit framework** for transparent, organized development:
+
+### Specification Files
+
+| File | Purpose |
+|------|---------|
+| [Constitution](.specify/constitution.md) | Project principles, governance, and development standards |
+| [Specifications](.specify/spec.md) | Technical requirements and architecture details |
+| [Implementation Plan](.specify/plan.md) | Phased development roadmap and task management |
+| [Tasks](.specify/tasks/) | Individual, actionable work items |
+
+### Why Spec-Kit?
+
+- **Transparency:** All development is documented and traceable
+- **Organization:** Clear structure for planning and execution  
+- **Collaboration:** Easy for contributors to understand project direction
+- **Quality:** Ensures features meet documented requirements
+- **AI-Friendly:** Enables AI agents to work within defined specifications
+
+Read the [Constitution](.specify/constitution.md) to understand FortiPath's development principles.
+
 ### 📚 Documentation
 
 | Document | Description |
@@ -171,6 +202,14 @@ For detailed setup instructions, see the [Development Environment Setup Guide](d
 
 ```
 FortiPath/
+├── .specify/             # Spec-Kit specification framework
+│   ├── constitution.md   # Project principles and governance
+│   ├── spec.md          # Technical specifications
+│   ├── plan.md          # Implementation roadmap
+│   └── tasks/           # Individual task specifications
+├── .github/workflows/    # CI/CD automation
+│   ├── spec-kit.yml     # Spec-Kit validation workflow
+│   └── ...
 ├── scripts/              # Python scripts for core functionality
 │   ├── report-writing/   # AI-powered report generation
 │   ├── route-planning/   # Route and SDR planning

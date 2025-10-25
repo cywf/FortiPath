@@ -1,0 +1,38 @@
+name: Spec-Kit Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check required files exist
+        run: |
+          required_files=(.specify/constitution.md .specify/spec.md .specify/plan.md)
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "Required file missing: $file" >&2
+              exit 1
+            fi
+          done
+
+      - name: Check for broken links in Markdown files
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          config-file: .github/workflows/markdown-link-check-config.json
+        continue-on-error: true
+
+      - name: List tasks
+        run: |
+          echo "Tasks:"
+          find .specify/tasks -type f -print
+
+      - name: Summary
+        run: echo "Spec-Kit validation complete."
