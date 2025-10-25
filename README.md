@@ -126,12 +126,11 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 # 3. Install Python dependencies
 pip install -r requirements.txt
 
-# 4. Configure environment variables
-cp .env.example .env
-# Edit .env with your API keys and configuration
+# 4. Explore available scripts
+ls scripts/
 
-# 5. Run initial setup
-python scripts/setup.py
+# 5. Try a sample script (e.g., route planning)
+python scripts/route-planning/route_planning_script.py --help
 ```
 
 For detailed setup instructions, see the [Development Environment Setup Guide](docs/DEVELOPMENT_ENVIRONMENT_SETUP.md).
