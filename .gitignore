@@ -85,3 +85,16 @@ node_modules/
 
 # Docker
 .dockerignore
+
+# Coverage reports
+/coverage/
+*.coverage
+.nyc_output/
+htmlcov/
+.pytest_cache/
+
+# Test output
+/test-results/
+
+# Debug files
+*.dSYM/

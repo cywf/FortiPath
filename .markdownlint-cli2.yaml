@@ -1,0 +1,6 @@
+# markdownlint-cli2 configuration
+
+# Disable specific rules
+MD013: false  # Line length - Allow long lines for URLs and tables
+MD033: false  # No inline HTML - Allow HTML for advanced formatting
+MD041: false  # First line in file should be a top-level heading - Allow flexibility
