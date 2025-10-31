@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Mermaid generator: scans the repo and writes ./mermaid/*.mmd
-// No dependencies. Node >= 18 (tested on 20).
+// No dependencies. Node >= 20.
 // Heuristics over perfection; stubs are written when signals are absent.
 
 import { promises as fs } from "fs";
@@ -44,7 +44,16 @@ const repo = process.env.GITHUB_REPOSITORY?.split("/").pop() || path.basename(ro
 // ---------- utility ----------
 const posix = p => p.split(path.sep).join("/");
 const rel = p => posix(path.relative(root, p)) || ".";
-const idify = s => (s.replace(/[^A-Za-z0-9_]/g, "_").replace(/^(\d)/, "_$1") || "n").slice(-64);
+// Simple hash for collision-free IDs when paths are too long
+const hash = s => {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  return Math.abs(h).toString(36);
+};
+const idify = s => {
+  const clean = s.replace(/[^A-Za-z0-9_]/g, "_").replace(/^(\d)/, "_$1") || "n";
+  return clean.length > 60 ? clean.slice(0, 50) + "_" + hash(s) : clean;
+};
 const read = p => fs.readFile(p, "utf8").catch(() => "");
 
 async function readdir(dir) {
