@@ -166,6 +166,19 @@ FortiPath follows the **Spec-Kit framework** for transparent, organized developm
 
 Read the [Constitution](.specify/constitution.md) to understand FortiPath's development principles.
 
+## 🗺️ Live Codebase Mindmap
+
+Auto-generated on each push: **[repo-map.html](https://cywf.github.io/FortiPath/repo-map.html)** (via GitHub Pages and CI artifact).
+
+An interactive mind map visualization of the entire FortiPath codebase is automatically generated on every push to the main branch. This provides:
+- **Visual navigation** of the repository structure
+- **Language breakdown** showing the distribution of code across different languages
+- **Interactive exploration** with expandable/collapsible sections
+
+The map is available at: `https://cywf.github.io/FortiPath/repo-map.html` (once GitHub Pages is enabled)
+
+You can also download the latest version from the [Actions artifacts tab](https://github.com/cywf/FortiPath/actions/workflows/markmap.yml).
+
 ### 📚 Documentation
 
 | Document | Description |

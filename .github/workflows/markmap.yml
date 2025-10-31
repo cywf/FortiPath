@@ -1,0 +1,61 @@
+name: Codebase Mindmap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install markmap-cli
+        run: npm install -g markmap-cli
+
+      - name: Generate Markdown map
+        run: node ./scripts/generate-markmap.mjs
+
+      - name: Build Markmap HTML
+        run: npx markmap-cli ./markmap/repo-map.md -o ./markmap/repo-map.html
+
+      - name: Upload artifact (downloadable)
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-markmap
+          path: markmap/repo-map.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./markmap
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

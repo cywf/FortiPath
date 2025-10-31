@@ -1,0 +1,7 @@
+# One name per line; directories or files to skip during scanning.
+# Simple names only (no globs). Examples:
+node_modules
+dist
+build
+venv
+__pycache__
