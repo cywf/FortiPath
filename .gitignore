@@ -76,6 +76,9 @@ logs/
 # Node modules (if any)
 node_modules/
 
+# Generated markmap files (created by CI)
+markmap/
+
 # Build artifacts
 *.o
 *.a
