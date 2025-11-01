@@ -1,0 +1,55 @@
+architecture-beta
+group k8s(cloud)[Kubernetes]
+group tf(cloud)[Terraform]
+service ConfigMap_fortipath_config(server)[ConfigMap: fortipath-config] in k8s
+service Deployment_fortipath_deployment(server)[Deployment: fortipath-deployment] in k8s
+service PersistentVolume_fortipath_pv(server)[PersistentVolume: fortipath-pv] in k8s
+service PersistentVolumeClaim_fortipath_pvc(server)[PersistentVolumeClaim: fortipath-pvc] in k8s
+service Service_fortipath_service(server)[Service: fortipath-service] in k8s
+service aws_api_gateway_rest_api_api(database)[aws_api_gateway_rest_api.api] in tf
+service aws_api_gateway_resource_example(database)[aws_api_gateway_resource.example] in tf
+service aws_api_gateway_method_example_get(database)[aws_api_gateway_method.example_get] in tf
+service aws_api_gateway_deployment_example(database)[aws_api_gateway_deployment.example] in tf
+service aws_cognito_user_pool_fortipath_user_pool(database)[aws_cognito_user_pool.fortipath_user_pool] in tf
+service aws_cognito_user_pool_client_fortipath_user_pool_client(database)[aws_cognito_user_pool_client.fortipath_user_pool_client] in tf
+service aws_cognito_identity_pool_fortipath_identity_pool(database)[aws_cognito_identity_pool.fortipath_identity_pool] in tf
+service aws_backup_plan_fortipath_backup_plan(database)[aws_backup_plan.fortipath_backup_plan] in tf
+service aws_backup_vault_fortipath_vault(database)[aws_backup_vault.fortipath_vault] in tf
+service aws_backup_selection_fortipath_selection(database)[aws_backup_selection.fortipath_selection] in tf
+service aws_backup_recovery_point_fortipath_recovery_point(database)[aws_backup_recovery_point.fortipath_recovery_point] in tf
+service aws_cloudfront_distribution_fortipath_distribution(database)[aws_cloudfront_distribution.fortipath_distribution] in tf
+service aws_elasticache_cluster_fortipath_cache(database)[aws_elasticache_cluster.fortipath_cache] in tf
+service google_sql_database_instance_fortipath_db_instance(database)[google_sql_database_instance.fortipath_db_instance] in tf
+service google_sql_database_fortipath_db(database)[google_sql_database.fortipath_db] in tf
+service aws_lambda_function_fortipath_integration_lambda(database)[aws_lambda_function.fortipath_integration_lambda] in tf
+service aws_iam_role_lambda_execution_role(database)[aws_iam_role.lambda_execution_role] in tf
+service google_compute_global_forwarding_rule_fortipath_fo_fedsib(database)[google_compute_global_forwarding_rule.fortipath_forwarding_rule] in tf
+service google_compute_target_http_proxy_fortipath_http_proxy(database)[google_compute_target_http_proxy.fortipath_http_proxy] in tf
+service google_compute_url_map_fortipath_url_map(database)[google_compute_url_map.fortipath_url_map] in tf
+service google_compute_backend_service_fortipath_backend_service(database)[google_compute_backend_service.fortipath_backend_service] in tf
+service aws_cloudwatch_log_group_app_logs(database)[aws_cloudwatch_log_group.app_logs] in tf
+service aws_cloudwatch_metric_alarm_cpu_utilization(database)[aws_cloudwatch_metric_alarm.cpu_utilization] in tf
+service aws_cloudtrail_example_trail(database)[aws_cloudtrail.example_trail] in tf
+service aws_vpc_fortipath_vpc(database)[aws_vpc.fortipath_vpc] in tf
+service aws_subnet_fortipath_public_subnet(database)[aws_subnet.fortipath_public_subnet] in tf
+service aws_subnet_fortipath_private_subnet(database)[aws_subnet.fortipath_private_subnet] in tf
+service aws_internet_gateway_fortipath_igw(database)[aws_internet_gateway.fortipath_igw] in tf
+service aws_kms_key_encryption_key(database)[aws_kms_key.encryption_key] in tf
+service aws_iam_role_example_role(database)[aws_iam_role.example_role] in tf
+service aws_security_group_example_sg(database)[aws_security_group.example_sg] in tf
+service aws_secretsmanager_secret_example_secret(database)[aws_secretsmanager_secret.example_secret] in tf
+service aws_lambda_function_fortipath_function(database)[aws_lambda_function.fortipath_function] in tf
+service aws_api_gateway_rest_api_fortipath_api(database)[aws_api_gateway_rest_api.fortipath_api] in tf
+service aws_api_gateway_integration_fortipath_api_integration(database)[aws_api_gateway_integration.fortipath_api_integration] in tf
+service aws_s3_bucket_fortipath_data_bucket(database)[aws_s3_bucket.fortipath_data_bucket] in tf
+service aws_ebs_volume_fortipath_ebs_volume(database)[aws_ebs_volume.fortipath_ebs_volume] in tf
+service google_compute_instance_tak_server(database)[google_compute_instance.tak_server] in tf
+service google_compute_firewall_tak_server_fw(database)[google_compute_firewall.tak_server_fw] in tf
+service google_compute_instance_fortipath_vm(database)[google_compute_instance.fortipath_vm] in tf
+service aws_instance_web(database)[aws_instance.web] in tf
+service google_compute_instance_zerotier_root(database)[google_compute_instance.zerotier_root] in tf
+service google_compute_firewall_zerotier_root_fw(database)[google_compute_firewall.zerotier_root_fw] in tf
+service fortipath_security_plan_advanced_plan(database)[fortipath_security_plan.advanced_plan] in tf
+service fortipath_vulnerability_assessment_advanced_assessment(database)[fortipath_vulnerability_assessment.advanced_assessment] in tf
+service fortipath_security_plan_basic_plan(database)[fortipath_security_plan.basic_plan] in tf
+service fortipath_vulnerability_assessment_basic_assessment(database)[fortipath_vulnerability_assessment.basic_assessment] in tf

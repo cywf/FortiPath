@@ -1,0 +1,449 @@
+flowchart TB
+classDef dir fill:#eef,stroke:#99c,stroke-width:1px;
+d__["FortiPath/"]:::dir
+f__gitignore[".gitignore"]
+f__markdownlint_cli2_yaml[".markdownlint-cli2.yaml"]
+f__markmapignore[".markmapignore"]
+f__mermaidignore[".mermaidignore"]
+d__specify[".specify/"]:::dir
+f__specify_constitution_md["constitution.md"]
+f__specify_INTEGRATION_SUMMARY_md["INTEGRATION_SUMMARY.md"]
+f__specify_plan_md["plan.md"]
+f__specify_spec_md["spec.md"]
+d__specify_tasks["tasks/"]:::dir
+f__specify_tasks_001_integrate_spec_bootstrap_md["001-integrate-spec-bootstrap.md"]
+f__specify_tasks_002_update_python_dependencies_md["002-update-python-dependencies.md"]
+f__specify_tasks_003_setup_testing_infrastructure_md["003-setup-testing-infrastructure.md"]
+d_assets["assets/"]:::dir
+d_assets_css["css/"]:::dir
+f_assets_css_styles_css["styles.css"]
+d_assets_images["images/"]:::dir
+d_assets_js["js/"]:::dir
+f_assets_js_scripts_js["scripts.js"]
+d_docs["docs/"]:::dir
+f_docs_CODE_OF_CONDUCT_md["CODE_OF_CONDUCT.md"]
+f_docs_CODEBASE_ANALYSIS_md["CODEBASE_ANALYSIS.md"]
+f_docs_Commercial_License_md["Commercial_License.md"]
+f_docs_Contributing_md["Contributing.md"]
+f_docs_DEVELOPMENT_ENVIRONMENT_SETUP_md["DEVELOPMENT_ENVIRONMENT_SETUP.md"]
+f_docs_index_html["index.html"]
+f_docs_infra_deployment_md["infra-deployment.md"]
+f_docs_LICENSE_md["LICENSE.md"]
+f_docs_milestones_md["milestones.md"]
+f_docs_README_md["README.md"]
+f_docs_roadmap_md["roadmap.md"]
+f_docs_SECURITY_md["SECURITY.md"]
+f_docs_tak_deployment_md["tak-deployment.md"]
+f_docs_UPGRADE_PLAN_md["UPGRADE_PLAN.md"]
+f_EXECUTIVE_SUMMARY_md["EXECUTIVE_SUMMARY.md"]
+d_infra["infra/"]:::dir
+f_infra_Dockerfile["Dockerfile"]
+d_infra_k8s["k8s/"]:::dir
+f_infra_k8s_fortipath_config_yaml["fortipath-config.yaml"]
+f_infra_k8s_fortipath_deployment_yaml["fortipath-deployment.yaml"]
+f_infra_k8s_fortipath_pv_pvc_yaml["fortipath-pv-pvc.yaml"]
+f_infra_k8s_fortipath_service_yaml["fortipath-service.yaml"]
+f_infra_README_md["README.md"]
+d_infra_rust["rust/"]:::dir
+d_infra_rust_fortipath_behavioral_analysis["fortipath_behavioral_analysis/"]:::dir
+f_infra_rust_fortipath_behavioral_analysis_Cargo_toml["Cargo.toml"]
+d_infra_rust_fortipath_behavioral_analysis_src["src/"]:::dir
+f_infra_rust_fortipath_behavioral_analysis_src_main_rs["main.rs"]
+d_infra_rust_fortipath_osint_crawler["fortipath_osint_crawler/"]:::dir
+f_infra_rust_fortipath_osint_crawler_Cargo_toml["Cargo.toml"]
+d_infra_rust_fortipath_osint_crawler_src["src/"]:::dir
+f_infra_rust_fortipath_osint_crawler_src_main_rs["main.rs"]
+d_infra_terraform["terraform/"]:::dir
+f_infra_terraform_main_tf["main.tf"]
+d_infra_terraform_modules["modules/"]:::dir
+d_infra_terraform_modules_api_gateway["api_gateway/"]:::dir
+f_infra_terraform_modules_api_gateway_main_tf["main.tf"]
+f_infra_terraform_modules_api_gateway_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_api_gateway_variables_tf["variables.tf"]
+d_infra_terraform_modules_authentication_authorization["authentication_authorization/"]:::dir
+f_infra_terraform_modules_authentication_authorization_main_tf["main.tf"]
+f_infra_terraform_modules_authentication_authorizati_lcy895["outputs.tf"]
+f_infra_terraform_modules_authentication_authorizati_janhx8["variables.tf"]
+d_infra_terraform_modules_backup_recovery["backup_recovery/"]:::dir
+f_infra_terraform_modules_backup_recovery_main_tf["main.tf"]
+f_infra_terraform_modules_backup_recovery_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_backup_recovery_variables_tf["variables.tf"]
+d_infra_terraform_modules_content_delivery_caching["content_delivery_caching/"]:::dir
+f_infra_terraform_modules_content_delivery_caching_main_tf["main.tf"]
+f_infra_terraform_modules_content_delivery_caching_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_content_delivery_caching_v_udwvlo["variables.tf"]
+d_infra_terraform_modules_database["database/"]:::dir
+f_infra_terraform_modules_database_main_tf["main.tf"]
+f_infra_terraform_modules_database_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_database_variables_tf["variables.tf"]
+d_infra_terraform_modules_integration["integration/"]:::dir
+f_infra_terraform_modules_integration_main_tf["main.tf"]
+f_infra_terraform_modules_integration_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_integration_variables_tf["variables.tf"]
+d_infra_terraform_modules_load_balancer["load_balancer/"]:::dir
+f_infra_terraform_modules_load_balancer_main_tf["main.tf"]
+f_infra_terraform_modules_load_balancer_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_load_balancer_variables_tf["variables.tf"]
+d_infra_terraform_modules_monitoring_logging["monitoring_logging/"]:::dir
+f_infra_terraform_modules_monitoring_logging_main_tf["main.tf"]
+f_infra_terraform_modules_monitoring_logging_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_monitoring_logging_variables_tf["variables.tf"]
+d_infra_terraform_modules_networking["networking/"]:::dir
+f_infra_terraform_modules_networking_main_tf["main.tf"]
+f_infra_terraform_modules_networking_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_networking_variables_tf["variables.tf"]
+f_infra_terraform_modules_README_md["README.md"]
+d_infra_terraform_modules_security["security/"]:::dir
+f_infra_terraform_modules_security_main_tf["main.tf"]
+f_infra_terraform_modules_security_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_security_variables_tf["variables.tf"]
+d_infra_terraform_modules_serverless["serverless/"]:::dir
+f_infra_terraform_modules_serverless_main_tf["main.tf"]
+f_infra_terraform_modules_serverless_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_serverless_variables_tf["variables.tf"]
+d_infra_terraform_modules_storage["storage/"]:::dir
+f_infra_terraform_modules_storage_main_tf["main.tf"]
+f_infra_terraform_modules_storage_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_storage_variables_tf["variables.tf"]
+d_infra_terraform_modules_tak_server["tak_server/"]:::dir
+f_infra_terraform_modules_tak_server_main_tf["main.tf"]
+f_infra_terraform_modules_tak_server_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_tak_server_variables_tf["variables.tf"]
+d_infra_terraform_modules_virtual_machine["virtual_machine/"]:::dir
+f_infra_terraform_modules_virtual_machine_main_tf["main.tf"]
+f_infra_terraform_modules_virtual_machine_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_virtual_machine_variables_tf["variables.tf"]
+d_infra_terraform_modules_web_infrastructure["web_infrastructure/"]:::dir
+f_infra_terraform_modules_web_infrastructure_main_tf["main.tf"]
+f_infra_terraform_modules_web_infrastructure_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_web_infrastructure_variables_tf["variables.tf"]
+d_infra_terraform_modules_zerotier_root_server["zerotier_root_server/"]:::dir
+f_infra_terraform_modules_zerotier_root_server_main_tf["main.tf"]
+f_infra_terraform_modules_zerotier_root_server_outputs_tf["outputs.tf"]
+f_infra_terraform_modules_zerotier_root_server_variables_tf["variables.tf"]
+f_infra_terraform_outputs_tf["outputs.tf"]
+f_infra_terraform_providers_tf["providers.tf"]
+f_infra_terraform_README_md["README.md"]
+f_infra_terraform_tfvars_tf["tfvars.tf"]
+f_infra_terraform_variables_tf["variables.tf"]
+f_infra_terraform_versions_tf["versions.tf"]
+d_infra_terraform_provider_fortipath["terraform-provider-fortipath/"]:::dir
+f_infra_terraform_provider_fortipath__gitignore[".gitignore"]
+d_infra_terraform_provider_fortipath_examples["examples/"]:::dir
+f_infra_terraform_provider_fortipath_examples_advanc_bjosnj["advanced_configuration.tf"]
+f_infra_terraform_provider_fortipath_examples_basic_usage_tf["basic_usage.tf"]
+d_infra_terraform_provider_fortipath_fortipath["fortipath/"]:::dir
+f_infra_terraform_provider_fortipath_fortipath_data__4wu4xw["data_source_fortipath_threat_analysis.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_trtot5["fortipath_advance_survey.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_n394xc["fortipath_after_action_review.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_7x4jw0["fortipath_behavioral_analysis.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_t1gpvb["fortipath_estate_security_plan.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_r0s3cj["fortipath_incident_report.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_fs320d["fortipath_k8s_integration.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_a3v6uq["fortipath_osint_crawler.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_9q6iti["fortipath_professional_email.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_sn57lj["fortipath_protective_intel_summary.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_zmawg["fortipath_report_writer.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_gs72yq["fortipath_terraform_provider.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_khur1["fortipath_threat_analysis.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_630z21["fortipath_threat_assessment.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_b9krlq["fortipath_threat_management_plan.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_i3fo9v["fortipath_travel_security_readahead.go"]
+f_infra_terraform_provider_fortipath_fortipath_forti_6jtb5l["fortipath_vulnerability_assessment.go"]
+f_infra_terraform_provider_fortipath_fortipath_resou_brinep["resource_fortipath_security_plan.go"]
+f_infra_terraform_provider_fortipath_fortipath_resou_ir4o5c["resource_fortipath_vulnerability_assessment.go"]
+f_infra_terraform_provider_fortipath_main_go["main.go"]
+f_infra_terraform_provider_fortipath_README_md["README.md"]
+f_LICENSE["LICENSE"]
+d_mermaid["mermaid/"]:::dir
+f_mermaid_architecture_mmd["architecture.mmd"]
+f_mermaid_bpmnish_mmd["bpmnish.mmd"]
+f_mermaid_ci_sequence_mmd["ci-sequence.mmd"]
+f_mermaid_er_mmd["er.mmd"]
+f_mermaid_flowchart_mmd["flowchart.mmd"]
+f_README_md["README.md"]
+f_requirements_txt["requirements.txt"]
+d_scripts["scripts/"]:::dir
+d_scripts_collaboration_with_law_enforcement["collaboration_with_law_enforcement/"]:::dir
+f_scripts_collaboration_with_law_enforcement_intelli_lf4f3d["intelligence_sharing.py"]
+f_scripts_collaboration_with_law_enforcement_joint_o_auvdhu["joint_operations.py"]
+d_scripts_comms["comms/"]:::dir
+f_scripts_comms_communication_script_py["communication_script.py"]
+d_scripts_digital_countermeasures["digital_countermeasures/"]:::dir
+f_scripts_digital_countermeasures_active_cyber_defense_py["active_cyber_defense.py"]
+f_scripts_digital_countermeasures_digital_decoys_py["digital_decoys.py"]
+d_scripts_disaster_planning["disaster-planning/"]:::dir
+f_scripts_disaster_planning_disaster_management_tool_py["disaster_management_tool.py"]
+f_scripts_disaster_planning_disaster_plan_txt["disaster_plan.txt"]
+d_scripts_emergency_planning["emergency-planning/"]:::dir
+f_scripts_emergency_planning_emergency_planning_script_py["emergency_planning_script.py"]
+f_scripts_generate_markmap_mjs["generate-markmap.mjs"]
+f_scripts_generate_mermaid_mjs["generate-mermaid.mjs"]
+d_scripts_information_warfare["information_warfare/"]:::dir
+f_scripts_information_warfare_disinformation_campaigns_py["disinformation_campaigns.py"]
+f_scripts_information_warfare_social_media_manipulation_py["social_media_manipulation.py"]
+d_scripts_location_assessment["location-assessment/"]:::dir
+f_scripts_location_assessment_location_assessment_script_py["location_assessment_script.py"]
+d_scripts_network_scanning["network-scanning/"]:::dir
+f_scripts_network_scanning_network_scanning_py["network_scanning.py"]
+d_scripts_physical_reconnaissance["physical_reconnaissance/"]:::dir
+f_scripts_physical_reconnaissance_advance_team_operations_py["advance_team_operations.py"]
+f_scripts_physical_reconnaissance_counter_surveillance_py["counter_surveillance.py"]
+d_scripts_proactive_cyber_reconnaissance["proactive_cyber_reconnaissance/"]:::dir
+f_scripts_proactive_cyber_reconnaissance_penetration_n5u4md["penetration_testing.py"]
+f_scripts_proactive_cyber_reconnaissance_red_teaming_py["red_teaming.py"]
+f_scripts_proactive_cyber_reconnaissance_threat_hunting_py["threat_hunting.py"]
+d_scripts_psychological_operations["psychological_operations/"]:::dir
+f_scripts_psychological_operations_deterrence_measures_py["deterrence_measures.py"]
+f_scripts_psychological_operations_threat_profiling_py["threat_profiling.py"]
+f_scripts_README_md["README.md"]
+d_scripts_report_writing["report-writing/"]:::dir
+f_scripts_report_writing_Advance_Surveys_py["Advance_Surveys.py"]
+f_scripts_report_writing_After_Action_Reviews_py["After_Action_Reviews.py"]
+f_scripts_report_writing_Estate_Security_Plan_py["Estate_Security_Plan.py"]
+f_scripts_report_writing_Incident_Report_py["Incident_Report.py"]
+f_scripts_report_writing_Professional_Emails_py["Professional_Emails.py"]
+f_scripts_report_writing_Protective_Intel_Analysis_S_20xg70["Protective_Intel_Analysis_Summaries.py"]
+f_scripts_report_writing_README_md["README.md"]
+f_scripts_report_writing_Threat_Analysis_py["Threat_Analysis.py"]
+f_scripts_report_writing_Threat_Assessment_py["Threat_Assessment.py"]
+f_scripts_report_writing_Threat_Management_Plan_py["Threat_Management_Plan.py"]
+f_scripts_report_writing_Travel_Security_Read_Aheads_py["Travel_Security_Read_Aheads.py"]
+f_scripts_report_writing_Vulnerability_Assessments_py["Vulnerability_Assessments.py"]
+d_scripts_route_planning["route-planning/"]:::dir
+f_scripts_route_planning_route_planning_script_py["route_planning_script.py"]
+d_scripts_scheduling["scheduling/"]:::dir
+f_scripts_scheduling_scheduling_script_py["scheduling_script.py"]
+d_scripts_technological_advancements["technological_advancements/"]:::dir
+f_scripts_technological_advancements_ai_powered_thre_bwa1yl["ai_powered_threat_detection.py"]
+f_scripts_technological_advancements_drone_surveillance_py["drone_surveillance.py"]
+d_scripts_threat_neutralization["threat_neutralization/"]:::dir
+f_scripts_threat_neutralization_counter_intelligence_zdj6iq["counter_intelligence_operations.py"]
+f_scripts_threat_neutralization_honeypots_py["honeypots.py"]
+d_scripts_training_and_drills["training_and_drills/"]:::dir
+f_scripts_training_and_drills_offensive_tactics_training_py["offensive_tactics_training.py"]
+f_scripts_training_and_drills_scenario_based_drills_py["scenario_based_drills.py"]
+f_SUMMARY_md["SUMMARY.md"]
+d__ --> f__gitignore
+d__ --> f__markdownlint_cli2_yaml
+d__ --> f__markmapignore
+d__ --> f__mermaidignore
+d__ --> d__specify
+d__specify --> f__specify_constitution_md
+d__specify --> f__specify_INTEGRATION_SUMMARY_md
+d__specify --> f__specify_plan_md
+d__specify --> f__specify_spec_md
+d__specify --> d__specify_tasks
+d__specify_tasks --> f__specify_tasks_001_integrate_spec_bootstrap_md
+d__specify_tasks --> f__specify_tasks_002_update_python_dependencies_md
+d__specify_tasks --> f__specify_tasks_003_setup_testing_infrastructure_md
+d__ --> d_assets
+d_assets --> d_assets_css
+d_assets_css --> f_assets_css_styles_css
+d_assets --> d_assets_images
+d_assets --> d_assets_js
+d_assets_js --> f_assets_js_scripts_js
+d__ --> d_docs
+d_docs --> f_docs_CODE_OF_CONDUCT_md
+d_docs --> f_docs_CODEBASE_ANALYSIS_md
+d_docs --> f_docs_Commercial_License_md
+d_docs --> f_docs_Contributing_md
+d_docs --> f_docs_DEVELOPMENT_ENVIRONMENT_SETUP_md
+d_docs --> f_docs_index_html
+d_docs --> f_docs_infra_deployment_md
+d_docs --> f_docs_LICENSE_md
+d_docs --> f_docs_milestones_md
+d_docs --> f_docs_README_md
+d_docs --> f_docs_roadmap_md
+d_docs --> f_docs_SECURITY_md
+d_docs --> f_docs_tak_deployment_md
+d_docs --> f_docs_UPGRADE_PLAN_md
+d__ --> f_EXECUTIVE_SUMMARY_md
+d__ --> d_infra
+d_infra --> f_infra_Dockerfile
+d_infra --> d_infra_k8s
+d_infra_k8s --> f_infra_k8s_fortipath_config_yaml
+d_infra_k8s --> f_infra_k8s_fortipath_deployment_yaml
+d_infra_k8s --> f_infra_k8s_fortipath_pv_pvc_yaml
+d_infra_k8s --> f_infra_k8s_fortipath_service_yaml
+d_infra --> f_infra_README_md
+d_infra --> d_infra_rust
+d_infra_rust --> d_infra_rust_fortipath_behavioral_analysis
+d_infra_rust_fortipath_behavioral_analysis --> f_infra_rust_fortipath_behavioral_analysis_Cargo_toml
+d_infra_rust_fortipath_behavioral_analysis --> d_infra_rust_fortipath_behavioral_analysis_src
+d_infra_rust_fortipath_behavioral_analysis_src --> f_infra_rust_fortipath_behavioral_analysis_src_main_rs
+d_infra_rust --> d_infra_rust_fortipath_osint_crawler
+d_infra_rust_fortipath_osint_crawler --> f_infra_rust_fortipath_osint_crawler_Cargo_toml
+d_infra_rust_fortipath_osint_crawler --> d_infra_rust_fortipath_osint_crawler_src
+d_infra_rust_fortipath_osint_crawler_src --> f_infra_rust_fortipath_osint_crawler_src_main_rs
+d_infra --> d_infra_terraform
+d_infra_terraform --> f_infra_terraform_main_tf
+d_infra_terraform --> d_infra_terraform_modules
+d_infra_terraform_modules --> d_infra_terraform_modules_api_gateway
+d_infra_terraform_modules_api_gateway --> f_infra_terraform_modules_api_gateway_main_tf
+d_infra_terraform_modules_api_gateway --> f_infra_terraform_modules_api_gateway_outputs_tf
+d_infra_terraform_modules_api_gateway --> f_infra_terraform_modules_api_gateway_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_authentication_authorization
+d_infra_terraform_modules_authentication_authorization --> f_infra_terraform_modules_authentication_authorization_main_tf
+d_infra_terraform_modules_authentication_authorization --> f_infra_terraform_modules_authentication_authorizati_lcy895
+d_infra_terraform_modules_authentication_authorization --> f_infra_terraform_modules_authentication_authorizati_janhx8
+d_infra_terraform_modules --> d_infra_terraform_modules_backup_recovery
+d_infra_terraform_modules_backup_recovery --> f_infra_terraform_modules_backup_recovery_main_tf
+d_infra_terraform_modules_backup_recovery --> f_infra_terraform_modules_backup_recovery_outputs_tf
+d_infra_terraform_modules_backup_recovery --> f_infra_terraform_modules_backup_recovery_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_content_delivery_caching
+d_infra_terraform_modules_content_delivery_caching --> f_infra_terraform_modules_content_delivery_caching_main_tf
+d_infra_terraform_modules_content_delivery_caching --> f_infra_terraform_modules_content_delivery_caching_outputs_tf
+d_infra_terraform_modules_content_delivery_caching --> f_infra_terraform_modules_content_delivery_caching_v_udwvlo
+d_infra_terraform_modules --> d_infra_terraform_modules_database
+d_infra_terraform_modules_database --> f_infra_terraform_modules_database_main_tf
+d_infra_terraform_modules_database --> f_infra_terraform_modules_database_outputs_tf
+d_infra_terraform_modules_database --> f_infra_terraform_modules_database_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_integration
+d_infra_terraform_modules_integration --> f_infra_terraform_modules_integration_main_tf
+d_infra_terraform_modules_integration --> f_infra_terraform_modules_integration_outputs_tf
+d_infra_terraform_modules_integration --> f_infra_terraform_modules_integration_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_load_balancer
+d_infra_terraform_modules_load_balancer --> f_infra_terraform_modules_load_balancer_main_tf
+d_infra_terraform_modules_load_balancer --> f_infra_terraform_modules_load_balancer_outputs_tf
+d_infra_terraform_modules_load_balancer --> f_infra_terraform_modules_load_balancer_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_monitoring_logging
+d_infra_terraform_modules_monitoring_logging --> f_infra_terraform_modules_monitoring_logging_main_tf
+d_infra_terraform_modules_monitoring_logging --> f_infra_terraform_modules_monitoring_logging_outputs_tf
+d_infra_terraform_modules_monitoring_logging --> f_infra_terraform_modules_monitoring_logging_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_networking
+d_infra_terraform_modules_networking --> f_infra_terraform_modules_networking_main_tf
+d_infra_terraform_modules_networking --> f_infra_terraform_modules_networking_outputs_tf
+d_infra_terraform_modules_networking --> f_infra_terraform_modules_networking_variables_tf
+d_infra_terraform_modules --> f_infra_terraform_modules_README_md
+d_infra_terraform_modules --> d_infra_terraform_modules_security
+d_infra_terraform_modules_security --> f_infra_terraform_modules_security_main_tf
+d_infra_terraform_modules_security --> f_infra_terraform_modules_security_outputs_tf
+d_infra_terraform_modules_security --> f_infra_terraform_modules_security_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_serverless
+d_infra_terraform_modules_serverless --> f_infra_terraform_modules_serverless_main_tf
+d_infra_terraform_modules_serverless --> f_infra_terraform_modules_serverless_outputs_tf
+d_infra_terraform_modules_serverless --> f_infra_terraform_modules_serverless_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_storage
+d_infra_terraform_modules_storage --> f_infra_terraform_modules_storage_main_tf
+d_infra_terraform_modules_storage --> f_infra_terraform_modules_storage_outputs_tf
+d_infra_terraform_modules_storage --> f_infra_terraform_modules_storage_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_tak_server
+d_infra_terraform_modules_tak_server --> f_infra_terraform_modules_tak_server_main_tf
+d_infra_terraform_modules_tak_server --> f_infra_terraform_modules_tak_server_outputs_tf
+d_infra_terraform_modules_tak_server --> f_infra_terraform_modules_tak_server_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_virtual_machine
+d_infra_terraform_modules_virtual_machine --> f_infra_terraform_modules_virtual_machine_main_tf
+d_infra_terraform_modules_virtual_machine --> f_infra_terraform_modules_virtual_machine_outputs_tf
+d_infra_terraform_modules_virtual_machine --> f_infra_terraform_modules_virtual_machine_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_web_infrastructure
+d_infra_terraform_modules_web_infrastructure --> f_infra_terraform_modules_web_infrastructure_main_tf
+d_infra_terraform_modules_web_infrastructure --> f_infra_terraform_modules_web_infrastructure_outputs_tf
+d_infra_terraform_modules_web_infrastructure --> f_infra_terraform_modules_web_infrastructure_variables_tf
+d_infra_terraform_modules --> d_infra_terraform_modules_zerotier_root_server
+d_infra_terraform_modules_zerotier_root_server --> f_infra_terraform_modules_zerotier_root_server_main_tf
+d_infra_terraform_modules_zerotier_root_server --> f_infra_terraform_modules_zerotier_root_server_outputs_tf
+d_infra_terraform_modules_zerotier_root_server --> f_infra_terraform_modules_zerotier_root_server_variables_tf
+d_infra_terraform --> f_infra_terraform_outputs_tf
+d_infra_terraform --> f_infra_terraform_providers_tf
+d_infra_terraform --> f_infra_terraform_README_md
+d_infra_terraform --> f_infra_terraform_tfvars_tf
+d_infra_terraform --> f_infra_terraform_variables_tf
+d_infra_terraform --> f_infra_terraform_versions_tf
+d_infra --> d_infra_terraform_provider_fortipath
+d_infra_terraform_provider_fortipath --> f_infra_terraform_provider_fortipath__gitignore
+d_infra_terraform_provider_fortipath --> d_infra_terraform_provider_fortipath_examples
+d_infra_terraform_provider_fortipath_examples --> f_infra_terraform_provider_fortipath_examples_advanc_bjosnj
+d_infra_terraform_provider_fortipath_examples --> f_infra_terraform_provider_fortipath_examples_basic_usage_tf
+d_infra_terraform_provider_fortipath --> d_infra_terraform_provider_fortipath_fortipath
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_data__4wu4xw
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_trtot5
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_n394xc
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_7x4jw0
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_t1gpvb
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_r0s3cj
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_fs320d
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_a3v6uq
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_9q6iti
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_sn57lj
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_zmawg
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_gs72yq
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_khur1
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_630z21
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_b9krlq
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_i3fo9v
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_forti_6jtb5l
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_resou_brinep
+d_infra_terraform_provider_fortipath_fortipath --> f_infra_terraform_provider_fortipath_fortipath_resou_ir4o5c
+d_infra_terraform_provider_fortipath --> f_infra_terraform_provider_fortipath_main_go
+d_infra_terraform_provider_fortipath --> f_infra_terraform_provider_fortipath_README_md
+d__ --> f_LICENSE
+d__ --> d_mermaid
+d_mermaid --> f_mermaid_architecture_mmd
+d_mermaid --> f_mermaid_bpmnish_mmd
+d_mermaid --> f_mermaid_ci_sequence_mmd
+d_mermaid --> f_mermaid_er_mmd
+d_mermaid --> f_mermaid_flowchart_mmd
+d__ --> f_README_md
+d__ --> f_requirements_txt
+d__ --> d_scripts
+d_scripts --> d_scripts_collaboration_with_law_enforcement
+d_scripts_collaboration_with_law_enforcement --> f_scripts_collaboration_with_law_enforcement_intelli_lf4f3d
+d_scripts_collaboration_with_law_enforcement --> f_scripts_collaboration_with_law_enforcement_joint_o_auvdhu
+d_scripts --> d_scripts_comms
+d_scripts_comms --> f_scripts_comms_communication_script_py
+d_scripts --> d_scripts_digital_countermeasures
+d_scripts_digital_countermeasures --> f_scripts_digital_countermeasures_active_cyber_defense_py
+d_scripts_digital_countermeasures --> f_scripts_digital_countermeasures_digital_decoys_py
+d_scripts --> d_scripts_disaster_planning
+d_scripts_disaster_planning --> f_scripts_disaster_planning_disaster_management_tool_py
+d_scripts_disaster_planning --> f_scripts_disaster_planning_disaster_plan_txt
+d_scripts --> d_scripts_emergency_planning
+d_scripts_emergency_planning --> f_scripts_emergency_planning_emergency_planning_script_py
+d_scripts --> f_scripts_generate_markmap_mjs
+d_scripts --> f_scripts_generate_mermaid_mjs
+d_scripts --> d_scripts_information_warfare
+d_scripts_information_warfare --> f_scripts_information_warfare_disinformation_campaigns_py
+d_scripts_information_warfare --> f_scripts_information_warfare_social_media_manipulation_py
+d_scripts --> d_scripts_location_assessment
+d_scripts_location_assessment --> f_scripts_location_assessment_location_assessment_script_py
+d_scripts --> d_scripts_network_scanning
+d_scripts_network_scanning --> f_scripts_network_scanning_network_scanning_py
+d_scripts --> d_scripts_physical_reconnaissance
+d_scripts_physical_reconnaissance --> f_scripts_physical_reconnaissance_advance_team_operations_py
+d_scripts_physical_reconnaissance --> f_scripts_physical_reconnaissance_counter_surveillance_py
+d_scripts --> d_scripts_proactive_cyber_reconnaissance
+d_scripts_proactive_cyber_reconnaissance --> f_scripts_proactive_cyber_reconnaissance_penetration_n5u4md
+d_scripts_proactive_cyber_reconnaissance --> f_scripts_proactive_cyber_reconnaissance_red_teaming_py
+d_scripts_proactive_cyber_reconnaissance --> f_scripts_proactive_cyber_reconnaissance_threat_hunting_py
+d_scripts --> d_scripts_psychological_operations
+d_scripts_psychological_operations --> f_scripts_psychological_operations_deterrence_measures_py
+d_scripts_psychological_operations --> f_scripts_psychological_operations_threat_profiling_py
+d_scripts --> f_scripts_README_md
+d_scripts --> d_scripts_report_writing
+d_scripts_report_writing --> f_scripts_report_writing_Advance_Surveys_py
+d_scripts_report_writing --> f_scripts_report_writing_After_Action_Reviews_py
+d_scripts_report_writing --> f_scripts_report_writing_Estate_Security_Plan_py
+d_scripts_report_writing --> f_scripts_report_writing_Incident_Report_py
+d_scripts_report_writing --> f_scripts_report_writing_Professional_Emails_py
+d_scripts_report_writing --> f_scripts_report_writing_Protective_Intel_Analysis_S_20xg70
+d_scripts_report_writing --> f_scripts_report_writing_README_md
+d_scripts_report_writing --> f_scripts_report_writing_Threat_Analysis_py
+d_scripts_report_writing --> f_scripts_report_writing_Threat_Assessment_py
+d_scripts_report_writing --> f_scripts_report_writing_Threat_Management_Plan_py
+d_scripts_report_writing --> f_scripts_report_writing_Travel_Security_Read_Aheads_py
+d_scripts_report_writing --> f_scripts_report_writing_Vulnerability_Assessments_py
+d_scripts --> d_scripts_route_planning
+d_scripts_route_planning --> f_scripts_route_planning_route_planning_script_py
+d_scripts --> d_scripts_scheduling
+d_scripts_scheduling --> f_scripts_scheduling_scheduling_script_py
+d_scripts --> d_scripts_technological_advancements
+d_scripts_technological_advancements --> f_scripts_technological_advancements_ai_powered_thre_bwa1yl
+d_scripts_technological_advancements --> f_scripts_technological_advancements_drone_surveillance_py
+d_scripts --> d_scripts_threat_neutralization
+d_scripts_threat_neutralization --> f_scripts_threat_neutralization_counter_intelligence_zdj6iq
+d_scripts_threat_neutralization --> f_scripts_threat_neutralization_honeypots_py
+d_scripts --> d_scripts_training_and_drills
+d_scripts_training_and_drills --> f_scripts_training_and_drills_offensive_tactics_training_py
+d_scripts_training_and_drills --> f_scripts_training_and_drills_scenario_based_drills_py
+d__ --> f_SUMMARY_md

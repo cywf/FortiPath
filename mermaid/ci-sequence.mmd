@@ -1,0 +1,40 @@
+sequenceDiagram
+actor Dev
+participant GitHub
+participant Runner
+Dev->>GitHub: triggers "Deployment Automation"
+GitHub->>Runner: dispatch
+loop Deployment Automation
+Runner->>Runner: job deploy
+Runner-->>Runner: Checkout
+Runner-->>Runner: Set up Git user
+Runner-->>Runner: Create Branch
+Runner-->>Runner: Create Project Board
+Runner-->>Runner: Fork Repository
+Runner-->>Runner: Notify Completion
+Runner-->>Runner: Log Action
+end
+Dev->>GitHub: triggers "Codebase Mindmap"
+GitHub->>Runner: dispatch
+loop Codebase Mindmap
+Runner->>Runner: job build
+Runner-->>Runner: Checkout
+Runner-->>Runner: Setup Node.js
+Runner-->>Runner: Install markmap-cli
+Runner-->>Runner: Generate Markdown map
+Runner-->>Runner: Build Markmap HTML
+Runner-->>Runner: Upload artifact (downloadable)
+Runner-->>Runner: Upload Pages artifact
+Runner->>Runner: job deploy
+Runner-->>Runner: Deploy to GitHub Pages
+end
+Dev->>GitHub: triggers "Spec-Kit Validation"
+GitHub->>Runner: dispatch
+loop Spec-Kit Validation
+Runner->>Runner: job validate
+Runner-->>Runner: Checkout repository
+Runner-->>Runner: Check required files exist
+Runner-->>Runner: Check for broken links in Markdown files
+Runner-->>Runner: List tasks
+Runner-->>Runner: Summary
+end

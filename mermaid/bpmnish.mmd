@@ -1,0 +1,14 @@
+flowchart LR
+subgraph DEV[Developer]
+  A[Commit / PR]
+end
+subgraph CI[CI/CD]
+  B[Build]
+  C[Test]
+  D[Deploy]
+end
+subgraph ENV[Environment]
+  E[Service Live]
+end
+A --> B --> C --> D --> E
+%% CI steps discovered; see ci-sequence.mmd for details

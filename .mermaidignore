@@ -1,0 +1,6 @@
+# One name per line; directories or files to skip during scanning (literal matches).
+node_modules
+dist
+build
+venv
+__pycache__
