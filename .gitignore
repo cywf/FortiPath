@@ -76,6 +76,11 @@ logs/
 # Node modules (if any)
 node_modules/
 
+# Site build artifacts
+site/dist/
+site/.astro/
+site/public/data/
+
 # Generated markmap files (created by CI)
 markmap/
 
