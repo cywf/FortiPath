@@ -1,0 +1,100 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Get list of docs
+const docsDir = path.join(process.cwd(), '../docs');
+let docFiles: string[] = [];
+
+try {
+  docFiles = fs
+    .readdirSync(docsDir)
+    .filter((file) => file.endsWith('.md'))
+    .sort();
+} catch (error) {
+  console.error('Error reading docs directory:', error);
+}
+---
+
+<Layout title="Documentation">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">Documentation</h1>
+      <p class="text-lg opacity-80">
+        Browse the FortiPath documentation. Click any document to view it on GitHub.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        docFiles.map((file) => {
+          const name = file.replace('.md', '');
+          const displayName = name
+            .replace(/_/g, ' ')
+            .replace(/([A-Z])/g, ' $1')
+            .trim();
+
+          return (
+            <a
+              href={`https://github.com/cywf/FortiPath/blob/main/docs/${file}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card bg-base-200 shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            >
+              <div class="card-body">
+                <h2 class="card-title text-lg">
+                  📄 {displayName}
+                </h2>
+                <div class="card-actions justify-end">
+                  <span class="text-sm opacity-70">View on GitHub →</span>
+                </div>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+
+    {
+      docFiles.length === 0 && (
+        <div class="alert alert-warning">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
+          </svg>
+          <span>No documentation files found.</span>
+        </div>
+      )
+    }
+
+    <div class="mt-8 card bg-base-200 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Browse All Documentation</h2>
+        <p>
+          Visit the GitHub repository to browse all documentation, including
+          READMEs, guides, and specifications.
+        </p>
+        <div class="card-actions justify-end">
+          <a
+            href="https://github.com/cywf/FortiPath/tree/main/docs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

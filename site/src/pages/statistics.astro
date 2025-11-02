@@ -1,0 +1,18 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { StatisticsCharts } from '@/components/StatisticsCharts';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Load statistics data
+const statsPath = path.join(process.cwd(), 'public/data/stats.json');
+const stats = JSON.parse(fs.readFileSync(statsPath, 'utf-8'));
+---
+
+<Layout title="Statistics">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Repository Statistics</h1>
+    
+    <StatisticsCharts stats={stats} client:load />
+  </div>
+</Layout>

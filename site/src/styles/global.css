@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neon glow utilities */
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 10px theme('colors.primary'),
+                0 0 20px theme('colors.primary'),
+                0 0 30px theme('colors.primary');
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 10px theme('colors.accent'),
+                0 0 20px theme('colors.accent');
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px currentColor,
+                 0 0 20px currentColor;
+  }
+}
+
+/* Smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

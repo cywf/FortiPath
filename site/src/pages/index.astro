@@ -1,0 +1,181 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Project Info">
+  <div class="max-w-6xl mx-auto">
+    <!-- Hero Section -->
+    <div class="hero bg-base-300 rounded-lg mb-8">
+      <div class="hero-content text-center py-12">
+        <div class="max-w-2xl">
+          <h1 class="text-5xl font-bold mb-4">FortiPath</h1>
+          <p class="text-xl mb-6">Comprehensive Security Planning</p>
+          <div class="flex flex-wrap justify-center gap-2 mb-6">
+            <img
+              src="https://github.com/cywf/FortiPath/actions/workflows/spec-kit.yml/badge.svg"
+              alt="Spec-Kit Validation"
+            />
+            <img
+              src="https://img.shields.io/badge/Status-Active%20Development-yellow"
+              alt="Status"
+            />
+            <img
+              src="https://img.shields.io/badge/Version-0.1.0%20→%201.0.0-blue"
+              alt="Version"
+            />
+            <img
+              src="https://img.shields.io/badge/License-Dual%20Licensed-green"
+              alt="License"
+            />
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://github.com/cywf/FortiPath/issues"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Issues
+            </a>
+            <a
+              href="https://github.com/cywf/FortiPath/discussions"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Discussions
+            </a>
+            <a
+              href="https://github.com/cywf/FortiPath/projects"
+              class="btn btn-accent"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Projects
+            </a>
+            <a
+              href="https://github.com/cywf/FortiPath/releases"
+              class="btn btn-info"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Releases
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Overview -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <h2 class="card-title">🎯 Mission</h2>
+          <p>
+            To provide executive protection professionals with a modern,
+            integrated toolkit that combines threat intelligence, operational
+            planning, and real-time communication capabilities—all while
+            maintaining the highest standards of security and privacy.
+          </p>
+        </div>
+      </div>
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <h2 class="card-title">🚧 Status</h2>
+          <p>
+            FortiPath is currently undergoing a comprehensive modernization
+            effort. Following the Spec-Kit specification-driven development
+            framework.
+          </p>
+          <div class="card-actions justify-end">
+            <a
+              href="https://github.com/cywf/FortiPath/blob/main/.specify/plan.md"
+              class="btn btn-sm btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Implementation Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Resources -->
+    <div class="card bg-base-200 mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-4">📚 Key Resources</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          <a
+            href="https://github.com/cywf/FortiPath/blob/main/EXECUTIVE_SUMMARY.md"
+            class="btn btn-outline btn-block justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📋 Executive Summary
+          </a>
+          <a
+            href="https://github.com/cywf/FortiPath/blob/main/docs/roadmap.md"
+            class="btn btn-outline btn-block justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🗺️ Roadmap
+          </a>
+          <a
+            href="https://github.com/cywf/FortiPath/blob/main/docs/SECURITY.md"
+            class="btn btn-outline btn-block justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🔒 Security Policy
+          </a>
+          <a
+            href="https://github.com/cywf/FortiPath/blob/main/.specify/constitution.md"
+            class="btn btn-outline btn-block justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📜 Constitution
+          </a>
+          <a
+            href="https://github.com/cywf/FortiPath/blob/main/.specify/spec.md"
+            class="btn btn-outline btn-block justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📐 Specifications
+          </a>
+          <a
+            href="https://github.com/cywf/FortiPath/blob/main/docs/Contributing.md"
+            class="btn btn-outline btn-block justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🤝 Contributing
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="prose prose-lg max-w-none">
+      <h2>About FortiPath</h2>
+      <p>
+        FortiPath is a comprehensive executive protection toolkit designed to
+        enhance the safety, efficiency, and effectiveness of protection details.
+        By leveraging state-of-the-art technologies and methodologies—including
+        AI-powered threat analysis, OSINT web crawling, and advanced route
+        planning—FortiPath aims to revolutionize the executive protection
+        industry.
+      </p>
+      <h3>Technologies</h3>
+      <ul>
+        <li><strong>Python 3.8+</strong> - Main application logic and scripts</li>
+        <li><strong>Rust 2021</strong> - High-performance OSINT web crawler</li>
+        <li><strong>Go 1.19+</strong> - Custom Terraform provider</li>
+      </ul>
+    </div>
+  </div>
+</Layout>

@@ -3,6 +3,7 @@
 ![alt text](assets/images/fortipath_art.png)
 
 [![Spec-Kit Validation](https://github.com/cywf/FortiPath/actions/workflows/spec-kit.yml/badge.svg)](https://github.com/cywf/FortiPath/actions/workflows/spec-kit.yml)
+[![Pages](https://github.com/cywf/FortiPath/actions/workflows/pages.yml/badge.svg)](https://github.com/cywf/FortiPath/actions/workflows/pages.yml)
 [![Status](https://img.shields.io/badge/Status-Active%20Development-yellow)](https://github.com/cywf/FortiPath)
 [![Version](https://img.shields.io/badge/Version-0.1.0%20→%201.0.0-blue)](https://github.com/cywf/FortiPath/releases)
 [![License](https://img.shields.io/badge/License-Dual%20Licensed-green)](LICENSE)
@@ -48,6 +49,21 @@ FortiPath is a comprehensive executive protection toolkit designed to enhance th
 ## 🎯 Mission
 
 To provide executive protection professionals with a modern, integrated toolkit that combines threat intelligence, operational planning, and real-time communication capabilities—all while maintaining the highest standards of security and privacy.
+
+## 🌐 Live Site
+
+**Visit the FortiPath project site:** [https://cywf.github.io/FortiPath/](https://cywf.github.io/FortiPath/)
+
+The live site features:
+- 📊 **Real-time Statistics** - Repository metrics, language breakdown, and commit activity
+- 💬 **Discussions Browser** - Searchable list of community discussions
+- 📋 **Development Board** - Interactive Kanban view of project progress
+- 📚 **Documentation Hub** - Easy access to all project documentation
+- 🎨 **Project Visualizer** - Interactive Mermaid diagrams of architecture and workflows
+- ✏️ **Issue Creation** - Guided interface for creating GitHub issues
+- 🎨 **Theme Selection** - Choose from 7 dark/neon theme variants
+
+The site is built with **Astro + React + TailwindCSS + daisyUI** and automatically deployed via GitHub Actions on every push to main.
 
 ## ✨ Features
 
@@ -165,6 +181,58 @@ FortiPath follows the **Spec-Kit framework** for transparent, organized developm
 - **AI-Friendly:** Enables AI agents to work within defined specifications
 
 Read the [Constitution](.specify/constitution.md) to understand FortiPath's development principles.
+
+## 🌐 Working with the Project Site
+
+The FortiPath project site (`site/`) is built with Astro and automatically deployed to GitHub Pages.
+
+### Local Development
+
+```bash
+# Navigate to site directory
+cd site
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+The dev server runs at `http://localhost:4321/FortiPath/`
+
+### Adding Content
+
+**Add a Mermaid Diagram:**
+1. Create a `.mmd` file in the `/mermaid/` directory
+2. The diagram will automatically appear in the Visualizer page
+
+**Add Documentation:**
+1. Add markdown files to the `/docs/` directory
+2. They will automatically appear in the Docs page
+
+**Update Data:**
+The site displays live data from the repository (stars, forks, discussions, project board). This data is fetched during the CI build process using these scripts:
+- `site/scripts/fetch_repo_data.ts` - Repository statistics and commit history
+- `site/scripts/fetch_discussions.ts` - Latest discussions
+- `site/scripts/fetch_projects.ts` - Project board items
+
+The data is exported to `site/public/data/*.json` during build and consumed by the site pages.
+
+### CI/CD Pipeline
+
+The `.github/workflows/pages.yml` workflow:
+1. Fetches latest data using the GitHub API
+2. Builds the Astro site
+3. Deploys to GitHub Pages
+
+The site is automatically redeployed on every push to `main`.
 
 ## 🗺️ Live Codebase Mindmap
 

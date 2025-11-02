@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { DiscussionsList } from '@/components/DiscussionsList';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Load discussions data
+const discussionsPath = path.join(process.cwd(), 'public/data/discussions.json');
+const discussions = JSON.parse(fs.readFileSync(discussionsPath, 'utf-8'));
+---
+
+<Layout title="Discussions">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">Discussions</h1>
+      <p class="text-lg opacity-80">
+        Join the conversation! Browse and participate in community discussions.
+      </p>
+    </div>
+
+    <DiscussionsList discussions={discussions} client:load />
+  </div>
+</Layout>

@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { DevelopmentBoard } from '@/components/DevelopmentBoard';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Load project board data
+const projectsPath = path.join(process.cwd(), 'public/data/projects.json');
+const items = JSON.parse(fs.readFileSync(projectsPath, 'utf-8'));
+---
+
+<Layout title="Development Board">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">Development Board</h1>
+      <p class="text-lg opacity-80">
+        Track the progress of features and tasks in the FortiPath project.
+      </p>
+    </div>
+
+    <DevelopmentBoard items={items} client:load />
+  </div>
+</Layout>

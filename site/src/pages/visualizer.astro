@@ -1,0 +1,38 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { MermaidViewer } from '@/components/MermaidViewer';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Load Mermaid diagrams from the repo's mermaid directory
+const mermaidDir = path.join(process.cwd(), '../mermaid');
+const diagrams: Array<{ name: string; content: string }> = [];
+
+try {
+  const files = fs
+    .readdirSync(mermaidDir)
+    .filter((file) => file.endsWith('.mmd'));
+
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(mermaidDir, file), 'utf-8');
+    const name = file.replace('.mmd', '');
+    diagrams.push({ name, content });
+  }
+} catch (error) {
+  console.error('Error loading Mermaid diagrams:', error);
+}
+---
+
+<Layout title="Project Visualizer">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">Project Visualizer</h1>
+      <p class="text-lg opacity-80">
+        Explore FortiPath's architecture and workflows through interactive
+        Mermaid diagrams.
+      </p>
+    </div>
+
+    <MermaidViewer diagrams={diagrams} client:load />
+  </div>
+</Layout>
