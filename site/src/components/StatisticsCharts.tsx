@@ -108,7 +108,7 @@ export function StatisticsCharts({ stats }: Props) {
 
       const commitsCtx = commitsChartRef.current.getContext('2d');
       if (commitsCtx) {
-        new Chart(commitsCtx, {
+        const commitsChart = new Chart(commitsCtx, {
           type: 'line',
           data: {
             labels: sortedWeeks.map(([week]) => week),
@@ -166,6 +166,9 @@ export function StatisticsCharts({ stats }: Props) {
 
       return () => {
         languagesChart.destroy();
+        if (commitsChart) {
+          commitsChart.destroy();
+        }
       };
     }
   }, [mounted, stats]);

@@ -13,6 +13,7 @@ const THEMES = [
 type Theme = typeof THEMES[number];
 
 const DEFAULT_THEME: Theme = 'nightfall';
+const FALLBACK_THEME: Theme = 'neon-accent';
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
@@ -31,7 +32,7 @@ export function ThemeSwitcher() {
 
     // Check system preference
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = prefersDark ? DEFAULT_THEME : 'neon-accent';
+    const initialTheme = prefersDark ? DEFAULT_THEME : FALLBACK_THEME;
     setTheme(initialTheme);
     document.documentElement.setAttribute('data-theme', initialTheme);
   }, []);

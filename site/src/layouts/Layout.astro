@@ -169,8 +169,10 @@ const buildTime = import.meta.env.PUBLIC_BUILD_TIME || new Date().toISOString();
 
     <script>
       // Initialize theme on page load
-      const theme = localStorage.getItem('theme') || 'nightfall';
-      document.documentElement.setAttribute('data-theme', theme);
+      document.addEventListener('DOMContentLoaded', () => {
+        const theme = localStorage.getItem('theme') || 'nightfall';
+        document.documentElement.setAttribute('data-theme', theme);
+      });
     </script>
   </body>
 </html>
