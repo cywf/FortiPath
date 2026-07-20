@@ -75,6 +75,22 @@ jobs:
           done
           docker logs fortipath-smoke
           exit 1
+      - name: Verify FortiPath route and emitted asset
+        run: |
+          curl --fail --silent --show-error http://127.0.0.1:8080/FortiPath/development-board/ >/dev/null
+          asset_path=$(python - <<'PY'
+          import re
+          import sys
+          import urllib.request
+
+          html = urllib.request.urlopen('http://127.0.0.1:8080/FortiPath/', timeout=10).read().decode()
+          match = re.search(r'["\'](?P<asset>/FortiPath/_astro/[^"\']+\.(?:js|css))["\']', html)
+          if not match:
+              raise SystemExit('no emitted /FortiPath/_astro asset found in page HTML')
+          sys.stdout.write(match.group('asset'))
+          PY
+          )
+          curl --fail --silent --show-error "http://127.0.0.1:8080${asset_path}" >/dev/null
       - name: Clean up smoke container
         if: always()
         run: docker rm --force fortipath-smoke || true
