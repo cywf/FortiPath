@@ -8,7 +8,9 @@ RUN npm ci
 COPY site/ ./
 COPY docs /app/docs
 COPY mermaid /app/mermaid
-RUN node --experimental-strip-types scripts/fetch_repo_data.ts \
+RUN --mount=type=secret,id=github_token,required=true \
+    export GITHUB_TOKEN="$(cat /run/secrets/github_token)" \
+    && node --experimental-strip-types scripts/fetch_repo_data.ts \
     && node --experimental-strip-types scripts/fetch_discussions.ts \
     && node --experimental-strip-types scripts/fetch_projects.ts \
     && npm run build

@@ -62,7 +62,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build site image
-        run: docker build --file infra/Dockerfile --tag fortipath:${{ github.sha }} .
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          docker build --secret id=github_token,env=GITHUB_TOKEN --file infra/Dockerfile --tag fortipath:${{ github.sha }} .
       - name: Run site smoke check
         run: |
           docker run --detach --name fortipath-smoke --publish 127.0.0.1:8080:8080 \
