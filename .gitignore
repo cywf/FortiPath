@@ -91,9 +91,6 @@ markmap/
 *.dll
 *.exe
 
-# Docker
-.dockerignore
-
 # Coverage reports
 /coverage/
 *.coverage

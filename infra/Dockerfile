@@ -1,17 +1,25 @@
-# Use a base image with the required runtime for FortiPath
-FROM ubuntu:20.04
+FROM node:22-alpine AS build
 
-# Set working directory
-WORKDIR /app
+WORKDIR /app/site
 
-# Copy the FortiPath application to the container
-COPY . /app
+COPY site/package.json site/package-lock.json ./
+RUN npm ci
 
-# Install any necessary dependencies
-# TODO: Add installation commands for FortiPath dependencies
+COPY site/ ./
+COPY docs /app/docs
+COPY mermaid /app/mermaid
+RUN --mount=type=secret,id=github_token,required=true \
+    export GITHUB_TOKEN="$(cat /run/secrets/github_token)" \
+    && node --experimental-strip-types scripts/fetch_repo_data.ts \
+    && node --experimental-strip-types scripts/fetch_discussions.ts \
+    && node --experimental-strip-types scripts/fetch_projects.ts \
+    && npm run build
 
-# Expose the port FortiPath runs on
+FROM nginxinc/nginx-unprivileged:1.27-alpine
+
+COPY infra/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/site/dist /usr/share/nginx/html
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --quiet --spider http://127.0.0.1:8080/ || exit 1
 EXPOSE 8080
-
-# Command to run the application
-CMD ["./fortipath"]

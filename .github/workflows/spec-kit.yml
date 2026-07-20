@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, edited, ready_for_review]
 
 permissions:
   contents: read
@@ -14,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Check required files exist
         run: |
@@ -39,3 +40,130 @@ jobs:
 
       - name: Summary
         run: echo "Spec-Kit validation complete."
+
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Python sources
+        run: python -m compileall -q scripts
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+
+  container-smoke:
+    name: Container smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build site image
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          docker build --secret id=github_token,env=GITHUB_TOKEN --file infra/Dockerfile --tag fortipath:${{ github.sha }} .
+      - name: Run site smoke check
+        run: |
+          docker run --detach --name fortipath-smoke --publish 127.0.0.1:8080:8080 \
+            fortipath:${{ github.sha }}
+          for _ in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:8080/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs fortipath-smoke
+          exit 1
+      - name: Verify FortiPath route and emitted asset
+        run: |
+          curl --fail --silent --show-error http://127.0.0.1:8080/FortiPath/development-board/ >/dev/null
+          asset_path=$(python - <<'PY'
+          import re
+          import sys
+          import urllib.request
+
+          html = urllib.request.urlopen('http://127.0.0.1:8080/FortiPath/', timeout=10).read().decode()
+          match = re.search(r'["\'](?P<asset>/FortiPath/_astro/[^"\']+\.(?:js|css))["\']', html)
+          if not match:
+              raise SystemExit('no emitted /FortiPath/_astro asset found in page HTML')
+          sys.stdout.write(match.group('asset'))
+          PY
+          )
+          curl --fail --silent --show-error "http://127.0.0.1:8080${asset_path}" >/dev/null
+      - name: Clean up smoke container
+        if: always()
+        run: docker rm --force fortipath-smoke || true
+
+  independent-review:
+    name: Independent review evidence
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PR_BODY: ${{ github.event.pull_request.body }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
+      IS_DRAFT: ${{ github.event.pull_request.draft }}
+    steps:
+      - name: Validate merge path and exact-head review evidence
+        shell: python
+        run: |
+          import os
+          import re
+
+          body = os.environ.get("PR_BODY", "")
+          head_ref = os.environ.get("HEAD_REF", "")
+          head_sha = os.environ.get("HEAD_SHA", "")
+          errors = []
+
+          if os.environ.get("IS_DRAFT", "").lower() == "true":
+              errors.append("pull request must be ready for review")
+          if not head_ref.startswith("codex/"):
+              errors.append("pull requests to main must originate from codex/*")
+          if "## Agent quality evidence" not in body:
+              errors.append("missing Agent quality evidence section")
+
+          reviewer = re.search(
+              r"(?im)^\|\s*Independent reviewer\s*\|\s*([^|]+)\|\s*([^|]+)\|",
+              body,
+          )
+          if reviewer is None:
+              errors.append("missing Independent reviewer evidence row")
+          else:
+              identity, verdict = reviewer.groups()
+              evidence = f"{identity} {verdict}"
+              if re.search(r"\b(pending|tbd|todo|placeholder|awaiting)\b", evidence, re.I):
+                  errors.append("independent reviewer evidence is still pending")
+              if not re.search(r"\b(pass(?:ed)?|approved|no blockers)\b", verdict, re.I):
+                  errors.append("independent reviewer must record a passing verdict")
+              if head_sha not in verdict:
+                  errors.append("review evidence must reference the exact PR head SHA")
+
+          if errors:
+              raise SystemExit("\n".join(f"- {error}" for error in errors))
+          print("PR policy and exact-head independent review evidence passed")
+
+  required-ci:
+    name: Required CI
+    if: always()
+    needs: [validate, unit-tests, container-smoke, independent-review]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every applicable gate
+        env:
+          EVENT: ${{ github.event_name }}
+          SPEC: ${{ needs.validate.result }}
+          UNIT: ${{ needs.unit-tests.result }}
+          CONTAINER: ${{ needs.container-smoke.result }}
+          REVIEW: ${{ needs.independent-review.result }}
+        run: |
+          test "$SPEC" = success
+          test "$UNIT" = success
+          test "$CONTAINER" = success
+          if [ "$EVENT" = pull_request ]; then
+            test "$REVIEW" = success
+          fi
